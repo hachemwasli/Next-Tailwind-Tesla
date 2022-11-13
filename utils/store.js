@@ -28,6 +28,7 @@ function reducer(state, action) {
       const cartItems = state.cart.cartItems.filter(
         (item) => item.slug !== action.payload.slug
       );
+      Cookies.set('cart', JSON.stringify({ ...state.cart, cartItems }));
       return { ...state, cart: { ...state.cart, cartItems } };
     }
     case 'CART_RESET':
@@ -39,6 +40,9 @@ function reducer(state, action) {
           paymentMethod: '',
         },
       };
+    case 'CART_CLEAR_ITEMS':
+      return { ...state, cart: { ...state.cart, cartItems: [] } };
+
     case 'SAVE_SHIPPING_ADDRESS':
       return {
         ...state,
