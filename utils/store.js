@@ -2,7 +2,7 @@ import { createContext, useReducer } from 'react';
 import Cookies from 'js-cookie';
 
 export const Store = createContext();
-
+// Fixed an error here for deployment
 const initialState = {
   cart: Cookies.get('cart')
     ? JSON.parse(Cookies.get('cart'))
