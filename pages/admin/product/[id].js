@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import Layout from '../../../components/Layout';
 import { getError } from '../../../utils/error';
-
+import Loader from '../../common/Loader';
 function reducer(state, action) {
   switch (action.type) {
     case 'FETCH_REQUEST':
@@ -156,7 +156,7 @@ export default function AdminProductEditScreen() {
         </div>
         <div className="md:col-span-3">
           {loading ? (
-            <div>Loading...</div>
+            <Loader />
           ) : error ? (
             <div className="alert-error">{error}</div>
           ) : (

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React, { useEffect, useReducer } from 'react';
 import Layout from '../../components/Layout';
 import { getError } from '../../utils/error';
-
+import Loader from '../common/Loader';
 function reducer(state, action) {
   switch (action.type) {
     case 'FETCH_REQUEST':
@@ -62,7 +62,7 @@ export default function AdminOrderScreen() {
           <h1 className="mb-4 text-xl">Admin Orders</h1>
 
           {loading ? (
-            <div>Loading...</div>
+            <Loader />
           ) : error ? (
             <div className="alert-error">{error}</div>
           ) : (

@@ -4,6 +4,7 @@ import React, { useEffect, useReducer } from 'react';
 import { toast } from 'react-toastify';
 import Layout from '../../components/Layout';
 import { getError } from '../../utils/error';
+import Loader from '../common/Loader';
 
 function reducer(state, action) {
   switch (action.type) {
@@ -92,7 +93,7 @@ function AdminUsersScreen() {
           <h1 className="mb-4 text-xl">Users</h1>
           {loadingDelete && <div>Deleting...</div>}
           {loading ? (
-            <div>Loading...</div>
+            <Loader />
           ) : error ? (
             <div className="alert-error">{error}</div>
           ) : (

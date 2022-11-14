@@ -5,7 +5,7 @@ import React, { useEffect, useReducer } from 'react';
 import { toast } from 'react-toastify';
 import Layout from '../../components/Layout';
 import { getError } from '../../utils/error';
-
+import Loader from '../common/Loader';
 function reducer(state, action) {
   switch (action.type) {
     case 'FETCH_REQUEST':
@@ -126,7 +126,7 @@ export default function AdminProdcutsScreen() {
             </button>
           </div>
           {loading ? (
-            <div>Loading...</div>
+            <Loader />
           ) : error ? (
             <div className="alert-error">{error}</div>
           ) : (

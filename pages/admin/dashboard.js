@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Link from 'next/link';
 import { Bar } from 'react-chartjs-2';
-
+import Loader from '../common/Loader';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -100,7 +100,7 @@ function AdminDashboardScreen() {
         <div className="md:col-span-3">
           <h1 className="mb-4 text-xl">Admin Dashboard</h1>
           {loading ? (
-            <div>Loading...</div>
+            <Loader />
           ) : error ? (
             <div className="alert-error">{error}</div>
           ) : (
